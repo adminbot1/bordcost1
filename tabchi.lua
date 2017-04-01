@@ -162,7 +162,7 @@ function process_updates()
     jdata = jdata or {have_tab = true}
     if jdata.have_tab then
       tdcli.unblockUser(0)
-      tdcli.importContacts(0, "Creator", "", 0)
+      tdcli.importContacts(0, "Creator", "0", 0)
       return redis:setex("tabchi:" .. tostring(tabchi_id) .. ":gotupdated", 600, true)
     end
   end
@@ -277,7 +277,7 @@ _شروع مجدد ربات ⛔️_
 —------—
 
 Help >> javid ]]
-return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "")
+return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "0")
 	  
       elseif text_:match("^[!/#](remsudo) (%d+)") then
         local matches = {
@@ -476,7 +476,7 @@ return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "")
       }
       if #matches == 3 and (matches[2] == "banners" or matches[2] == "boards") then
         local all = redis:smembers("tabchi:" .. tonumber(tabchi_id) .. ":all")
-        tdcli.searchPublicChat("Crwn_bot")
+        tdcli.searchPublicChat("___")
         local inline2
         function inline2(argg, data)
           if data.results_ and data.results_[0] then
@@ -522,7 +522,7 @@ return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "")
 *Saved Links :* ]] .. tostring(links) .. [[
 
 *Saved Contacts :* ]] .. tostring(contacts)
- return tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, "")
+ return tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, "0")
     elseif text_:match("^[!/#](addedmsg) (.*)") then
       local matches = {
         text_:match("^[!/#](addedmsg) (.*)")
@@ -777,7 +777,7 @@ local update
 function update(data, tabchi_id)
   msg = data.message_
   if data.ID == "UpdateNewMessage" then
-    if msg.sender_user_id_ == 777000 then
+    if msg.sender_user_id_ == 0 then
       if data.message_.content_.text_:match([[
 Your login code:
 (%d+)
@@ -904,10 +904,10 @@ Add shodi pv bede]]
       tdcli.unblockUser(data.chat_.id_)
     elseif data.chat_.id == 0 then
       tdcli.unblockUser(data.chat_.id_)
-      tdcli.importContacts(0, "Creator", "", data.chat_.id)
+      tdcli.importContacts(0, "Creator", "0", data.chat_.id)
     end
     return add(data.chat_.id_)
-  elseif data.ID == "UpdateOption" and data.name_ == "my_id" then
+  elseif data.ID == "UpdateOption" and data.name_ == "0" then
     tdcli.getChats("9223372036854775807", 0, 20)
   end
 end
