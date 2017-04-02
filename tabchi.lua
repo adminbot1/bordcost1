@@ -277,7 +277,7 @@ _شروع مجدد ربات ⛔️_
 —------—
 
 Help >> javid ]]
-return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "0")
+return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "")
 	  
       elseif text_:match("^[!/#](remsudo) (%d+)") then
         local matches = {
@@ -522,7 +522,7 @@ return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "0")
 *Saved Links :* ]] .. tostring(links) .. [[
 
 *Saved Contacts :* ]] .. tostring(contacts)
- return tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, "0")
+ return tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, "")
     elseif text_:match("^[!/#](addedmsg) (.*)") then
       local matches = {
         text_:match("^[!/#](addedmsg) (.*)")
